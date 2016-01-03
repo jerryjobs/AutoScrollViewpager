@@ -30,6 +30,7 @@ use in java code :
  
 * circle style is not supported
 * current item highlight not supported
+* jCenter not passed
 * etc ...
 
 
