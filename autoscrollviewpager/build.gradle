@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.1"
+version = "0.2"
 group = "cn.jerry.android"
 def siteUrl = 'https://github.com/jerryjobs/AutoScrollViewpager'
 def gitUrl = 'git@github.com:jerryjobs/AutoScrollViewpager.git'
