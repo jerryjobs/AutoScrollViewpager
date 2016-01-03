@@ -4,8 +4,8 @@ apply plugin: 'com.jfrog.bintray'
 
 version = "0.1"
 group = "cn.jerry.android"
-def siteUrl = 'https://github.com/jerryjobs'
-def gitUrl = 'https://git.coding.net/jerryjobs/AutoScrollViewpager.git'
+def siteUrl = 'https://github.com/jerryjobs/AutoScrollViewpager'
+def gitUrl = 'git@github.com:jerryjobs/AutoScrollViewpager.git'
 
 android {
   compileSdkVersion 22
@@ -55,13 +55,18 @@ artifacts {
 }
 
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 bintray {
-  user = 'jerryjobs'
-  key = '79fbb15c77a97f7278c8d630d6c257399ddcd17f'
+  user = properties.getProperty('bintray.user')
+  key = properties.getProperty('bintray.apikey')
   configurations = ['archives']
+  print(user)
+  print(key)
   pkg {
-    repo = "maven"
-    name = "lesscode-core"                // project name in jcenter
+    repo = "android-tools"
+    name = "auto-scroll-viewpager"                // project name in jcenter
     websiteUrl = siteUrl
     vcsUrl = gitUrl
     licenses = ["Apache-2.0"]
@@ -75,7 +80,7 @@ install {
     pom {
       project {
         packaging 'aar'
-        name 'Less Code For Android'
+        name 'Auto scroll Viewpager For Android'
         url siteUrl
         licenses {
           license {
