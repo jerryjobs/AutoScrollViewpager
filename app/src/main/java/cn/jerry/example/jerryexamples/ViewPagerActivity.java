@@ -1,6 +1,7 @@
 package cn.jerry.example.jerryexamples;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import cn.jerry.autoscroll.AutoScrollViewPager;
 import cn.jerry.example.jerryexamples.adapter.PagerAdapter;
@@ -15,7 +16,11 @@ public class ViewPagerActivity extends Activity {
 
     setContentView(R.layout.view_pager);
 
-    AutoScrollViewPager wrapper = (AutoScrollViewPager) findViewById(R.id.viewPager);
-    wrapper.setAdapter(new PagerAdapter(this));
+    AutoScrollViewPager autoScrollViewPager = (AutoScrollViewPager) findViewById(R.id.viewPager);
+    autoScrollViewPager.setAdapter(new PagerAdapter(this));
+
+    autoScrollViewPager.setRadius(20);
+    autoScrollViewPager.setCircleColor(getResources().getColor(R.color.red));
+
   }
 }

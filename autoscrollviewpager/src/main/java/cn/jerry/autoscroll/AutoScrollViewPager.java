@@ -24,15 +24,10 @@ public class AutoScrollViewPager extends FrameLayout {
   private int currentItem = 0;
 
   private int radius = 10;
-  private int count = 5;
   private int circleColor = 0xff000000;
 
   public void setRadius(int radius) {
     this.radius = radius;
-  }
-
-  public void setCount(int count) {
-    this.count = count;
   }
 
   public void setCircleColor(int circleColor) {
