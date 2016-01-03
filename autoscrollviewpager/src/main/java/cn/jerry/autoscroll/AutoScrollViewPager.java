@@ -7,7 +7,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import cn.jerryjobs.viewpager.autoscroll.R;
@@ -18,10 +21,13 @@ import cn.jerryjobs.viewpager.autoscroll.R;
 public class AutoScrollViewPager extends FrameLayout {
 
   private static final int sliderBarHeight = 60;
+  private static final String TAG = "AutoScroll";
 
   private ViewPager viewPager;
   private SliderView sliderView;
   private int currentItem = 0;
+
+  private boolean isPressing = false;
 
   private int radius = 10;
   private int circleColor = 0xff000000;
@@ -63,6 +69,26 @@ public class AutoScrollViewPager extends FrameLayout {
     addView(viewPager, 0);
 
     addView(getSlider(), 1);
+
+
+    viewPager.setOnTouchListener(new OnTouchListener() {
+      @Override public boolean onTouch(View v, MotionEvent event) {
+
+        switch (event.getAction()) {
+
+          case MotionEvent.ACTION_DOWN:
+            isPressing = true;
+            break;
+
+          case MotionEvent.ACTION_CANCEL:
+          case MotionEvent.ACTION_UP:
+            isPressing = false;
+            break;
+        }
+
+        return false;
+      }
+    });
   }
 
   private LayoutParams getParam() {
@@ -97,8 +123,10 @@ public class AutoScrollViewPager extends FrameLayout {
   private void startTimer() {
     viewPager.postDelayed(new Runnable() {
       @Override public void run() {
-        viewPager.setCurrentItem(currentItem % viewPager.getAdapter().getCount());
-        currentItem += 1;
+        if (!isPressing) {
+          viewPager.setCurrentItem(currentItem % viewPager.getAdapter().getCount());
+          currentItem += 1;
+        }
         startTimer();
       }
     }, 3000);
