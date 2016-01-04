@@ -2,11 +2,13 @@ package cn.jerry.autoscroll;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,15 +31,7 @@ public class AutoScrollViewPager extends FrameLayout {
   private boolean isPressing = false;
 
   private int radius = 10;
-  private int circleColor = 0xff000000;
-
-  public void setRadius(int radius) {
-    this.radius = radius;
-  }
-
-  public void setCircleColor(int circleColor) {
-    this.circleColor = circleColor;
-  }
+  private int circleColor = 0xFF000000;
 
   public AutoScrollViewPager(Context context) {
     super(context);
@@ -46,11 +40,13 @@ public class AutoScrollViewPager extends FrameLayout {
 
   public AutoScrollViewPager(Context context, AttributeSet attrs) {
     super(context, attrs);
+    setAttrs(attrs);
     init();
   }
 
   public AutoScrollViewPager(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
+    setAttrs(attrs);
     init();
   }
 
@@ -58,7 +54,15 @@ public class AutoScrollViewPager extends FrameLayout {
   public AutoScrollViewPager(Context context, AttributeSet attrs, int defStyleAttr,
       int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
+
+    setAttrs(attrs);
     init();
+  }
+
+  private void setAttrs(AttributeSet attrs) {
+    TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.AutoScrollViewPager);
+    circleColor = a.getColor(R.styleable.AutoScrollViewPager_circle_color, 0xff000000);
+    radius = a.getDimensionPixelOffset(R.styleable.AutoScrollViewPager_circle_radius, 5);
   }
 
   private void init() {
