@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -17,6 +16,7 @@ import java.util.List;
  */
 public class SliderView extends View {
 
+  private static final String TAG = "SliderView";
   private static Paint paint;
   private int radius = 10;
   private int count = 5;
@@ -68,8 +68,7 @@ public class SliderView extends View {
       } else {
         getPaint().setStyle(Paint.Style.STROKE);
       }
-        canvas.drawCircle(rectf.centerX(), rectf.centerY(), radius / 2, getPaint());
-      //}
+      canvas.drawCircle(rectf.centerX(), rectf.centerY(), radius / 2, getPaint());
     }
   }
 
@@ -88,7 +87,7 @@ public class SliderView extends View {
 
     circle.offset(-20, -5);
 
-    for (int i = count -1; i >= 0; i--) {
+    for (int i = count - 1; i >= 0; i--) {
 
       if (i == 0) {
         rectFs.add(circle);

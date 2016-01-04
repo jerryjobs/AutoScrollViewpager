@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <cn.jerry.autoscroll.AutoScrollViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white"
+        app:circle_color="@color/red"
+        app:circle_radius="8dp"/>
 
 </LinearLayout>
