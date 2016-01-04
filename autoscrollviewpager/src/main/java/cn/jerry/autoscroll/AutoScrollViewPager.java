@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -70,7 +69,6 @@ public class AutoScrollViewPager extends FrameLayout {
 
     addView(getSlider(), 1);
 
-
     viewPager.setOnTouchListener(new OnTouchListener() {
       @Override public boolean onTouch(View v, MotionEvent event) {
 
@@ -126,6 +124,9 @@ public class AutoScrollViewPager extends FrameLayout {
         if (!isPressing) {
           viewPager.setCurrentItem(currentItem % viewPager.getAdapter().getCount());
           currentItem += 1;
+
+          sliderView.setCurrentIndex(currentItem % viewPager.getAdapter().getCount());
+          sliderView.invalidate();
         }
         startTimer();
       }

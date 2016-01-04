@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -20,6 +21,11 @@ public class SliderView extends View {
   private int radius = 10;
   private int count = 5;
   private int circleColor = 0xff000000;
+  private int currentIndex = 0;
+
+  public void setCurrentIndex(int currentIndex) {
+    this.currentIndex = currentIndex;
+  }
 
   public void setRadius(int radius) {
     this.radius = radius;
@@ -53,8 +59,17 @@ public class SliderView extends View {
   @Override protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
 
-    for (RectF rect : getRectFs()) {
-      canvas.drawArc(rect, 0f, 360f, true, getPaint());
+    List<RectF> rectFs = getRectFs();
+    for (int i = 0; i < rectFs.size(); i++) {
+
+      RectF rectf = rectFs.get(i);
+      if (i == currentIndex) {
+        getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+      } else {
+        getPaint().setStyle(Paint.Style.STROKE);
+      }
+        canvas.drawCircle(rectf.centerX(), rectf.centerY(), radius / 2, getPaint());
+      //}
     }
   }
 
@@ -73,7 +88,7 @@ public class SliderView extends View {
 
     circle.offset(-20, -5);
 
-    for (int i = 0; i < count; i++) {
+    for (int i = count -1; i >= 0; i--) {
 
       if (i == 0) {
         rectFs.add(circle);
@@ -91,9 +106,10 @@ public class SliderView extends View {
 
     if (paint == null) {
       paint = new Paint();
-      paint.setStyle(Paint.Style.FILL_AND_STROKE);
+      paint.setStyle(Paint.Style.STROKE);
       paint.setAntiAlias(true);
       paint.setColor(circleColor);
+      paint.setStrokeWidth(2);
     }
     return paint;
   }
