@@ -3,6 +3,10 @@
 android auto scroll viewpager
 
 
+import library with gradle:
+
+    compile ('cn.jerry.android:autoscrollviewpager:0.5@aar')
+
 
 use in layout like this:
 
