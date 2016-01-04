@@ -109,8 +109,8 @@ public class AutoScrollViewPager extends FrameLayout {
 
   private SliderView getSlider() {
     sliderView = new SliderView(getContext());
-    sliderView.setCircleColor(getResources().getColor(R.color.red));
-    sliderView.setRadius(15);
+    sliderView.setCircleColor(circleColor);
+    sliderView.setRadius(radius);
 
     LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, sliderBarHeight);
     params.gravity = Gravity.BOTTOM | Gravity.CENTER;
