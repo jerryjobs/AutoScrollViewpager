@@ -125,6 +125,9 @@ public class AutoScrollViewPager extends FrameLayout {
   private void startTimer() {
     viewPager.postDelayed(new Runnable() {
       @Override public void run() {
+        if (currentItem < 2) {
+          return;
+        }
         if (!isPressing) {
           viewPager.setCurrentItem(currentItem % viewPager.getAdapter().getCount());
           currentItem += 1;
