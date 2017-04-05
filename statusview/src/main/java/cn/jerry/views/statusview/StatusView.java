@@ -54,6 +54,10 @@ public abstract class StatusView extends FrameLayout {
         setVisibility(VISIBLE);
     }
 
+    public void showError(Throwable throwable) {
+        setVisibility(VISIBLE);
+    }
+
     public void finishWithAnimation() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(this, "alpha", 1, 0);
         animator.addListener(new Animator.AnimatorListener() {
