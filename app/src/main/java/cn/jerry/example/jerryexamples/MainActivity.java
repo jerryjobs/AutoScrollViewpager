@@ -1,7 +1,9 @@
 package cn.jerry.example.jerryexamples;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -57,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             .show();
       }
     });
+
+    Intent intent = new Intent(this, StatusViewActivity.class);
+    startActivity(intent);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {

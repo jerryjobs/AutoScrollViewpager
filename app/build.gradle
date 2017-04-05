@@ -6,7 +6,7 @@ android {
 
   defaultConfig {
     applicationId "cn.jerry.viewpager.autoscroll"
-    minSdkVersion 14
+    minSdkVersion 15
     targetSdkVersion 25
     versionCode 1
     versionName "1.0"
@@ -26,4 +26,5 @@ dependencies {
   compile 'com.android.support:design:25.3.1'
   compile 'com.android.support:recyclerview-v7:25.3.1'
   compile project(':autoscrollviewpager')
+    compile project(path: ':statusview')
 }
