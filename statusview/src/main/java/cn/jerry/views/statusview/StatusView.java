@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -51,10 +52,12 @@ public abstract class StatusView extends FrameLayout {
     }
 
     public void showLoading() {
+        setAlpha(1);
         setVisibility(VISIBLE);
     }
 
     public void showError(Throwable throwable) {
+        setAlpha(1);
         setVisibility(VISIBLE);
     }
 

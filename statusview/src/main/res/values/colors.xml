@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="swipe_icon_red">#ff2525</color>
+    <color name="swipe_icon_blue">#3866fd</color>
+    <color name="swipe_icon_gray">#494949</color>
+    <color name="swipe_icon_pink">#d539fc</color>
+
+    <color name="status_view_main_bg">#e7e6e6</color>
+</resources>
