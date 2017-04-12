@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <cn.jerry.views.statusview.TStatusView
+    <cn.jerry.views.statusview.TestStatusView
         android:id="@+id/sample_status_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

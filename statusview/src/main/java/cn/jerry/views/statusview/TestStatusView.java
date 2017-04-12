@@ -20,28 +20,28 @@ import android.widget.ImageView;
  * Created by JieGuo on 2017/4/5.
  */
 
-public class TStatusView extends StatusView {
+public class TestStatusView extends StatusView {
 
     AppCompatTextView tvTitle;
     ImageView ivLoading;
 
     private SwipeRefreshLayout.OnRefreshListener onRefreshListener;
 
-    public TStatusView(@NonNull Context context) {
+    public TestStatusView(@NonNull Context context) {
         super(context);
     }
 
-    public TStatusView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public TestStatusView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public TStatusView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public TestStatusView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressWarnings("unused")
-    public TStatusView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+    public TestStatusView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import cn.jerry.views.events.OnLoadNextPageListener;
 import cn.jerry.views.statusview.R;
-import cn.jerry.views.statusview.TStatusView;
+import cn.jerry.views.statusview.TestStatusView;
 
 /**
  * 集成刷新，加载状态的 list view
@@ -21,7 +21,7 @@ import cn.jerry.views.statusview.TStatusView;
 
 public class SwipeRecyclerViewWithStatusView extends CoordinatorLayout {
 
-    protected TStatusView statusView;
+    protected TestStatusView statusView;
     protected SwipeRefreshLayout swipeRefreshLayout;
     protected RecyclerView recyclerView;
     protected OnLoadNextPageListener nextPageListener;
@@ -42,7 +42,7 @@ public class SwipeRecyclerViewWithStatusView extends CoordinatorLayout {
     }
 
     protected void init(Context context) {
-        statusView = new TStatusView(context);
+        statusView = new TestStatusView(context);
         swipeRefreshLayout = new SwipeRefreshLayout(context);
         swipeRefreshLayout.setEnabled(false);
         recyclerView = new RecyclerView(context);
@@ -106,7 +106,7 @@ public class SwipeRecyclerViewWithStatusView extends CoordinatorLayout {
         this.nextPageListener = nextPageListener;
     }
 
-    public TStatusView getStatusView() {
+    public TestStatusView getStatusView() {
         return statusView;
     }
 
