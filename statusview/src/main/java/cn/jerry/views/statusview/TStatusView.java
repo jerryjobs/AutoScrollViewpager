@@ -82,7 +82,7 @@ public class TStatusView extends StatusView {
 //        if (throwable instanceof HttpException) {
 //            if (((HttpException) throwable).code() == 504) {
 //
-//                showEmpty(R.drawable.ic_status_view_not_network, "没有网络连接");
+                showEmpty(R.drawable.ic_status_view_not_network, "没有网络连接");
 //            } else {
 //                showEmpty(R.drawable.ic_status_view_empty_data, "请求出错，请检查网络后重试");
 //            }
