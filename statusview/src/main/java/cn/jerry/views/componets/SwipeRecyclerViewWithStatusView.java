@@ -46,30 +46,35 @@ public class SwipeRecyclerViewWithStatusView extends CoordinatorLayout {
         swipeRefreshLayout = new SwipeRefreshLayout(context);
         swipeRefreshLayout.setEnabled(false);
         recyclerView = new RecyclerView(context);
-//        recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
-//            @Override
-//            public void onLoadNextPage(View view) {
-//                if (nextPageListener != null) {
-//                    nextPageListener.onLoadNextPage(view);
-//                }
-//            }
-//        });
 
         swipeRefreshLayout.setColorSchemeResources(
-                R.color.swipe_icon_red, R.color.swipe_icon_blue, R.color.swipe_icon_gray, R.color.swipe_icon_pink
+                R.color.swipe_icon_red, R.color.swipe_icon_blue,
+                R.color.swipe_icon_gray, R.color.swipe_icon_pink
         );
         initSwipeLayoutAndRecyclerView();
     }
 
+    private void checkIsAdd() {
+        if (statusView.getParent() ==  null) {
+            addView(statusView, new LayoutParams(
+                    LayoutParams.MATCH_PARENT,
+                    LayoutParams.MATCH_PARENT
+            ));
+        }
+    }
+
     public void showLoading() {
+        checkIsAdd();
         statusView.showLoading();
     }
 
     public void showEmpty(String emptyMessage) {
+        checkIsAdd();
         statusView.showEmpty(emptyMessage);
     }
 
     public void showError(Throwable throwable) {
+        checkIsAdd();
         statusView.showError(throwable);
     }
 
@@ -127,11 +132,6 @@ public class SwipeRecyclerViewWithStatusView extends CoordinatorLayout {
         );
 
         addView(swipeRefreshLayout, new LayoutParams(
-                LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT
-        ));
-
-        addView(statusView, new LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT
         ));

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.jerry.views.componets.SwipeRecyclerViewWithStatusView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_status_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</cn.jerry.views.componets.SwipeRecyclerViewWithStatusView>
