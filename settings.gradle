@@ -1,1 +1,1 @@
-include ':app', ':autoscrollviewpager', ':statusview', ':scan'
+include ':app', ':autoscrollviewpager', ':statusview', ':scan', ':bottomnavigationview'
